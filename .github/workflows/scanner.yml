@@ -25,7 +25,6 @@ jobs:
           # vulnerabilities.
           entrypoint: /bin/sh
           args: -c "trivy image --clear-cache; for img in $(cat list.txt); do trivy image --exit-code 1 --severity HIGH,CRITICAL --no-progress --format sarif -o report.sarif $img  ;done "
-          # args: -c "trivy image --clear-cache; for img in $(cat list.txt); do trivy image --exit-code 1 --severity HIGH,CRITICAL --no-progress --format sarif  $img >> trivy-results.sarif  ; sed -i '/\([0-9][0-9][0-9][0-9]\)\-\([0-9][0-9]\)\-\([0-9][0-9][A-Z][0-9][0-9]\)/d' trivy-results.sarif ;done "
       - name: debug
         run: cat report.sarif
       - name: Upload Trivy scan results to GitHub Security tab
