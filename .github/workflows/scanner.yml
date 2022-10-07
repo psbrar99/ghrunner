@@ -24,7 +24,7 @@ jobs:
           # Trivy for every container image in the list. Fail if any image has
           # vulnerabilities.
           entrypoint: /bin/sh
-          args: -c "trivy image --clear-cache; for img in $(cat list.txt); do trivy image --exit-code 1 --severity HIGH,CRITICAL --no-progress --format sarif -o report.sarif $img  ;done "
+          args: -c "trivy image --clear-cache;trivy image --exit-code 1 --severity HIGH,CRITICAL --no-progress --format sarif -o report.sarif containers.istio.tetratelabs.com/app:1.14.3-tetrate-v0-debug"
       - name: debug
         run: cat report.sarif
       - name: Upload Trivy scan results to GitHub Security tab
