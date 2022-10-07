@@ -1,0 +1,27 @@
+name: build
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-20.04
+    env:
+      HUB: containers.istio.tetratelabs.com
+      TAG: 1.14.3-tetrate-v0
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: List docker images
+        run: bash ./pull.sh
+      - name: Scan images for CRITICAL vulnerabilities
+        uses: docker://ghcr.io/aquasecurity/trivy
+        with:
+          # We'd like to use the Github Action here like everywhere else, but it
+          # does not support scanning multiple images (yet), so we use the
+          # official Trivy image instead, override default entrypoint and run
+          # Trivy for every container image in the list. Fail if any image has
+          # vulnerabilities.
+          entrypoint: /bin/sh
+          args: -c "trivy image --clear-cache; for img in $(cat list.txt); do trivy image --exit-code 1 --severity CRITICAL --no-progress $img; done"
