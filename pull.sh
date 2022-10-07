@@ -11,7 +11,7 @@ operator
 pilot
 proxyv2)
 
-IMAGE_SUFFIXES=("-debug" "-distroless")
+IMAGE_SUFFIXES=("debug" "distroless")
 
 for image in "${IMAGES[@]}"; do
   for suffix in "${IMAGE_SUFFIXES[@]}"; do
