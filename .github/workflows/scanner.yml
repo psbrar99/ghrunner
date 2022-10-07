@@ -25,3 +25,7 @@ jobs:
           # vulnerabilities.
           entrypoint: /bin/sh
           args: -c "trivy image --clear-cache; for img in $(cat list.txt); do trivy image --exit-code 1 --severity HIGH,CRITICAL --no-progress $img; done"
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
