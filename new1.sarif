@@ -1,6 +1,3 @@
-2022-10-11T15:36:40.025-0600	[34mINFO[0m	Detected OS: ubuntu
-2022-10-11T15:36:40.026-0600	[34mINFO[0m	Detecting Ubuntu vulnerabilities...
-2022-10-11T15:36:40.030-0600	[34mINFO[0m	Number of language-specific files: 0
 {
   "version": "2.1.0",
   "$schema": "https://json.schemastore.org/sarif-2.1.0-rtm.5.json",
