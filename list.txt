@@ -1,2 +1,3 @@
+operator:1.14.3-tetrate-v0-debug
 containers.istio.tetratelabs.com/app:1.14.3-tetrate-v0-debug
 containers.istio.tetratelabs.com/operator:1.14.3-tetrate-v0-debug
