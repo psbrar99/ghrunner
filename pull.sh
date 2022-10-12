@@ -6,7 +6,9 @@ set -o pipefail
 
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 
-IMAGES=app
+IMAGES=(app
+pilot
+proxyv2)
 
 IMAGE_SUFFIXES=("debug" "distroless")
 
