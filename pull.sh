@@ -9,6 +9,7 @@ BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 IMAGES=(pilot
 proxyv2
 app
+istioctl
 )
 
 IMAGE_SUFFIXES=("debug" "distroless")
