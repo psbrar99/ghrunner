@@ -11,7 +11,6 @@ proxyv2
 app
 istioctl
 install-cni
-app_sidecar_ubuntu_xenial
 )
 
 IMAGE_SUFFIXES=("debug" "distroless")
