@@ -7,6 +7,8 @@ set -o pipefail
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 
 IMAGES=(app
+operator
+istioctl
 pilot
 proxyv2)
 
